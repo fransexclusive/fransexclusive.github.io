@@ -180,12 +180,11 @@ justify-content: flex-start;
 }
 
 .vid {
-height: 73vh;
-width: 41vh;
+height: 82vh;
+width: 46vh;
 border-radius: 20px;
 border: 10px solid black;
 animation: colorswitchBorder 5s infinite;
-box-shadow: 0 0 50px grey;
 }
 
 
