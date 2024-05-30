@@ -1,0 +1,45 @@
+<!--
+Copyright Frans Hermans 2024. All rights reserved.
+-->
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Short - Frans Hermans</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+</style>
+
+<div class="footer flex" style="display: none;">
+<a href="#/"><img src="https://cdn4.iconfinder.com/data/icons/social-media-black-white-2/1227/X-256.png"></a>
+<a href="https://youtube.com/@franshermans-cj2ud?feature=shared"><img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/18-youtube-512.png"></a>
+</div>
+
+<div class="circ-c flex" style="display: none;"><a href="#/"><div class="circ flex">!NEW EXCLUSIVE!</div></a></div>
+
+
+
+<div class="content flex" style="background-color: whitesmoke;">
+
+<iframe class="vid" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
+
+
+<script>
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const vidid = urlParams.get("vidid");
+
+const vid = document.querySelector(".vid");
+vid.setAttribute("src", `https://www.youtube.com/shorts/${vidid}`);
+
+
+</script>
+
+
+
+
+
