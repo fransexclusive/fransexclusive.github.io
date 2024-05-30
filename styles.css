@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
+* {
+box-sizing: border-box;
+margin: 0;
+font-family: Reddit Mono;
+}
+
+.flex {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+flex-wrap: wrap;
+}
+
+h1, h2, p {
+max-width: 80vw;
+text-align: center;
+}
+
+.content {
+min-height: 100vh;
+width: 100vw;
+gap: 9px;
+}
+
+@keyframes colorswitch {
+0% {background-color: #fc59a3;} 
+25% {background-color: #87c830;} 
+50% {background-color: #ffd400;} 
+75% {background-color: #fe7e0f;} 
+100% {background-color: #fc59a3;}
+}
+
+@keyframes colorswitchBorder {
+0% {border-color: #fc59a3;} 
+25% {border-color: #87c830;} 
+50% {border-color: #ffd400;} 
+75% {border-color: #fe7e0f;} 
+100% {border-color: #fc59a3;}
+}
+
+@keyframes circus {
+from {rotate: 0deg;}
+to {rotate: 360deg;}
+}
+
+.btns {
+width: 80vw;
+flex-direction: row;
+justify-content: space-around;
+padding: 30px 0;
+animation: colorswitch 5s infinite;
+rotate: -3deg;
+}
+
+.btns a {
+border: 2px solid white;
+color: white;
+text-decoration: none;
+font-size: 20px;
+padding: 5px 8px;
+border-radius: 8px;
+transition: 0.2s;
+z-index: 0;
+}
+
+.btns a:hover {
+background-color: rgba(255, 255, 255, 0.5);
+color: black;
+scale: 1.6;
+transition: 0.4s;
+z-index: -1;
+}
+
+.btns a:nth-child(1) {
+rotate: 4deg;
+}
+
+.btns a:nth-child(2) {
+rotate: -4deg;
+}
+
+.btns a:nth-child(1):hover, .btns a:nth-child(2):hover {
+rotate: none;
+}
+
+.circ-c {
+width: 100vw;
+position: absolute;
+top: 50px;
+}
+
+.circ-c a {
+text-decoration: none;
+}
+
+.circ {
+background-color: black;
+height: 17vh;
+width: 17vh;
+border-radius: 50%;
+text-align: center;
+color: white;
+font-size: 18px;
+animation: circus 200s infinite linear;
+border: 10px double white;
+box-sizing: content-box;
+}
+
+.footer {
+flex-direction: row;
+width: 100vw;
+position: absolute;
+bottom: 30px;
+gap: 20px;
+}
+
+.footer img {
+height: 5vh;
+width: 5vh;
+object-fit: cover;
+}
+
+.circ-c a, .footer img {
+transition: 0.2s;
+}
+
+.circ-c a:hover, .footer img:hover {
+transition: 0.4s;
+scale: 1.2;
+}
+
+.info {
+border-width: 0 0 0 5px;
+border-style: solid;
+border-color: black;
+animation: colorswitchBorder 5s infinite;
+text-align: left;
+padding-left: 7px;
+}
+
+.vidbox {
+flex-direction: row;
+gap: 1vh;
+max-width: 49vh;
+max-height: 52vh;
+overflow-y: scroll;
+}
+
+.vidbox div {
+height: 34vh;
+width: 19vh;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+background-size: cover;
+background-position: center;
+}
+
+.vidbox span {
+border-width: 2px 0 0 0;
+border-style: solid;
+border-color: white;
+white-space: nowrap;
+background-color: rgba(255, 255, 255, 0.5);
+padding-left: 4px;
+letter-spacing: -2px;
+}
+
+.vidbox a {
+text-decoration: none;
+color: black;
+}
+
+.flexTop {
+justify-content: flex-start;
+}
+
+.vid {
+height: 65vh;
+width: 37vh;
+border-radius: 20px;
+border: 10px double black;
+animation: colorswitchBorder 5s infinite;
+padding: 5px;
+outline: 10px solid white;
+}
+
+
+
+
+
