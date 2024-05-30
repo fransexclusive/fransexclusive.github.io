@@ -1,0 +1,53 @@
+<!--
+Copyright Frans Hermans 2024. All rights reserved.
+-->
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About - Frans Hermans</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+</style>
+
+<div class="footer flex">
+<a href="#/"><img src="https://cdn4.iconfinder.com/data/icons/social-media-black-white-2/1227/X-256.png"></a>
+<a href="https://youtube.com/@franshermans-cj2ud?feature=shared"><img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/18-youtube-512.png"></a>
+</div>
+
+<div class="circ-c flex"><a href="#/"><div class="circ flex">!NEW EXCLUSIVE!</div></a></div>
+
+
+
+<div class="content flex">
+
+<h2>Frans Hermans, the best YouTuber...</h2>
+<p class="info" id="desc">Which would you choose: a Mileyghini Urus or a Tesla Cyrustruck? In Frans Hermans' new series, the best cars of the moment compete against each other. Overcome the awkwardness that occurs when Frans gives a Ferrari two stars and a Tesla five stars, or when he claims that an Audi RS 6 has only two doors. Nothing is too crazy for Frans, so you make no chance.</p>
+
+</div>
+
+
+<script>
+
+const desc = document.querySelector("#desc");
+
+fetch("https://yt.artemislena.eu/api/v1/channels/UCirU0aVy-_PUnsdRDJb2NQQ?author")
+.then((response) => {
+return response.json();
+})
+.then((data) => {
+desc.textContent = data.description;
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
