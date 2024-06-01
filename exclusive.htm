@@ -32,6 +32,7 @@ Copyright Frans Hermans 2024. All rights reserved.
 <a href="#/"><div><span>Dit is zo een leuke video, je gaat het echt niet geloven.</span></div></a>
 <div></div>
 <div></div>
+<span class="moreBtn flex"><span>More exclusive</span></span>
 -->
 </div>
 
@@ -40,19 +41,14 @@ Copyright Frans Hermans 2024. All rights reserved.
 
 
 <script>
-
 const vidbox = document.querySelector(".vidbox");
 
+let vids;
+let count = 0;
 
+function makeVids() {
 
-fetch("https://invidious.flokinet.to/api/v1/channels/UCirU0aVy-_PUnsdRDJb2NQQ/shorts")
-.then((response) => {
-return response.json();
-})
-.then((data) => {
-
-let vids = data.videos;
-for (let i = 0; i < vids.length; i++) {
+for (let i = count; i < count + 4; i++) {
 
 let vi = vids[i];
 
@@ -69,14 +65,31 @@ div.appendChild(span);
 a.appendChild(div);
 vidbox.appendChild(a);
 
+}
+
+count += 4;
+let sp1 = document.createElement("span");
+sp1.classList.add("moreBtn");
+sp1.classList.add("flex");
+let sp2 = document.createElement("span");
+sp2.textContent = "More exclusive";
+sp1.appendChild(sp2);
+vidbox.appendChild(sp1);
+sp1.addEventListener("click", () => {
+vidbox.removeChild(sp1);
+makeVids();
+});
 
 }
 
+fetch("https://invidious.flokinet.to/api/v1/channels/UCirU0aVy-_PUnsdRDJb2NQQ/shorts")
+.then((response) => {
+return response.json();
+})
+.then((data) => {
+vids = data.videos;
+makeVids();
 });
-
-
-
-
 
 </script>
 
