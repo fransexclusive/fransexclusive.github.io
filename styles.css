@@ -48,12 +48,12 @@ to {rotate: 360deg;}
 }
 
 .btns {
-width: 80vw;
-flex-direction: row;
+width: 60vw;
 justify-content: space-around;
-padding: 30px 0;
+padding: 15px 0;
 animation: colorswitch 5s infinite;
 rotate: -3deg;
+gap: 10px;
 }
 
 .btns a {
@@ -81,6 +81,10 @@ rotate: 4deg;
 
 .btns a:nth-child(2) {
 rotate: -4deg;
+}
+
+.btns a:nth-child(3) {
+rotate: 8deg;
 }
 
 .btns a:nth-child(1):hover, .btns a:nth-child(2):hover {
