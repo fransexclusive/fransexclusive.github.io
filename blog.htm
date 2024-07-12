@@ -116,7 +116,7 @@ div.innerHTML = `<div class="blog-title flex"><span>${ar[0]}</span><h2>${ar[1]}<
 div.addEventListener("click", () => {
 div.classList.toggle("opendiv");
 });
-blogBox.appendChild(div);
+blogBox.prepend(div);
 
 }
 

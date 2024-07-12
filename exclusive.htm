@@ -10,6 +10,26 @@ Copyright Frans Hermans 2024. All rights reserved.
 </head>
 
 <style>
+.warning {
+box-shadow: 0 0 20px lightgrey;
+padding: 15px;
+margin: 25px 0;
+gap: 5px;
+max-width: 65vw;
+}
+
+.warning input {
+width: 60%;
+font-size: 20px;
+border-radius: 50px;
+text-align: center;
+}
+
+.warning div {
+background-color: black;
+color: white;
+padding: 5px;
+}
 </style>
 
 
@@ -18,6 +38,13 @@ Copyright Frans Hermans 2024. All rights reserved.
 <h1>!EXCLUSIVE!</H1>
 <p class="info">Welcome to the official page of Frans Hermans' exclusive shorts. Enjoy to your life.</p>
 
+
+<div class="warning flex">
+<p class="info">Welcome to the exclusive videos of Frans Hermans!</p>
+<input type="text" placeholder="1234" class="subin">
+<div class="submCode">Redeem code</div>
+<p style="color: gray; font-size: 12px;">Get your code from one of Frans Hermans' shorts!</p>
+</div>
 
 <div class="vidbox flex">
 <!--
@@ -46,26 +73,36 @@ const vidbox = document.querySelector(".vidbox");
 let vids;
 let count = 0;
 
+
+
+
 function makeVids() {
 
+
 for (let i = count; i < count + 4; i++) {
+
+if (i >= vids.length) {
+return;
+}
 
 let vi = vids[i];
 
 let a = document.createElement("a");
-a.setAttribute("href", `short.htm?vidid=${vi.videoId}`);
+a.setAttribute("href", `short.htm?vidid=${vi}`);
 
 let div = document.createElement("div");
-div.style.backgroundImage = `url('https://i.ytimg.com/vi/${vi.videoId}/maxresdefault.jpg')`;
+div.style.backgroundImage = `url('https://i.ytimg.com/vi/${vi}/maxresdefault.jpg')`;
 
 let span = document.createElement("span");
-span.textContent = vi.title;
+span.textContent = "Exclusive";
 
 div.appendChild(span);
 a.appendChild(div);
 vidbox.appendChild(a);
 
 }
+
+
 
 count += 4;
 let sp1 = document.createElement("span");
@@ -82,14 +119,50 @@ makeVids();
 
 }
 
-fetch("https://invidious.flokinet.to/api/v1/channels/UCirU0aVy-_PUnsdRDJb2NQQ/shorts")
-.then((response) => {
-return response.json();
-})
-.then((data) => {
-vids = data.videos;
+
+function getContent(x) {
+str = x;
+let xhttp = new XMLHttpRequest();
+
+xhttp.onload = () => {
+console.log(xhttp.responseText);
+retrieveAjax(xhttp.responseText);
+}
+
+xhttp.open("GET", "https://corsproxy.io/?https%3A%2F%2Fentertainmentmanager.wuaze.com%2Ftest%2Fytvids2.php?q=" + str, true);
+xhttp.send();
+}
+
+
+
+//deze functie is geschreven door ChatGPT.
+function splitStringIntoChunks(str, chunkSize) {
+  const result = [];
+  for (let i = 0; i < str.length; i += chunkSize) {
+    result.push(str.slice(i, i + chunkSize));
+  }
+  return result;
+}
+
+//retrieveAjax("h3YPi2xIsQEZSAAL_7WIiQ1XOhP8_l2EQh3YPi2xIsQEZSAAL_7WIiQ1XOhP8_l2EQh3YPi2xIsQEZSAAL_7WIiQ1XOhP8_l2EQh3YPi2xIsQEZSAAL_7WIiQ1XOhP8_l2EQ");
+
+function retrieveAjax(x) {
+vidbox.innerHTML = "";
+if (x == "error") {
+vidbox.textContent  = "Unfortunately, we were unable to load the videos.";
+return;
+}
+vids = splitStringIntoChunks(x, 11);
 makeVids();
+}
+
+subm = document.querySelector(".submCode");
+const subin = document.querySelector(".subin");
+
+subm.addEventListener("click", () => {
+getContent(subin.value)
 });
+
 
 </script>
 
