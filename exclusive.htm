@@ -158,6 +158,7 @@ vidbox.textContent  = "Unfortunately, we were unable to load the videos.";
 return;
 }
 vids = splitStringIntoChunks(x, 11);
+document.querySelector(".warning").style.display = "none";
 makeVids();
 }
 
